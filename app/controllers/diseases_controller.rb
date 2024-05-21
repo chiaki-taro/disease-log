@@ -17,6 +17,7 @@ class DiseasesController < ApplicationController
   end
 
   def show
+    @symptoms = @disease.symptoms.order(time: :desc)
   end
 
   def edit

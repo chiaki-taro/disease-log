@@ -1,0 +1,50 @@
+<%= render "shared/header" %>
+<div class="symptom-contents">
+
+  <%# 症状入力フォーム %>
+  <div class="add-symptom-main">
+    <h2 class="add-symptom-title">
+      <%=@patient.patient_name%>さんの<%=@disease.disease_name%>の症状を入力
+    </h2>
+
+    <%# 症状レベル画像 %>
+    <div class="symptom-scale-img">
+    <%= image_tag "level.jpg", class:"symptom-level", size: "350x100" %>
+    </div>
+    <%# 症状レベル画像 %>
+
+    <%= form_with model: [@user, @patient, @disease, @symptom], local: true do |f| %>
+      <div class="symptom-date-text">
+        症状があった日時
+      </div>
+      <%= f.datetime_field :time, class:"time", placeholder:"時刻" %>
+
+      <div class="symptom-symptoms-text">
+        症状
+      </div>
+      <%= f.text_area :symptoms, class:"symptoms", placeholder:"症状を記載してください", style: "width: 350px;" %>
+
+      <div class="symptom-level-text">
+        症状のつよさ
+      </div>
+      <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"level-select"}) %>
+
+      <div class="pain-treatment-text">
+        症状に対する処置
+      </div>
+      <%= f.text_area :treatment, class:"treatment", placeholder:"症状に対して行った処置があれば記載してください", style: "width: 350px;" %>
+
+      <div class="pain-evaluation-text">
+        症状に対する処置の効果
+      </div>
+      <%= f.text_area :evaluation, class:"evaluation", placeholder:"処置を行った後の効果があれば記載してください", style: "width: 350px;" %>
+
+      <div class="pain-memo-text">
+        その他症状に関してメモ
+      </div>
+      <%= f.text_area :memo, class:"memo", placeholder:"気になったことがあれば記載してください", style: "width: 350px;" %>
+      <%= f.submit "症状を記録" ,class:"btn" %>
+    <% end %>
+  </div>
+  <%# 症状入力フォーム %>
+</div>

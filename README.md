@@ -40,16 +40,16 @@
 ### Association
 
 - belongs_to :patient
-- has_many :disease_logs
+- has_many :symptoms
 
 
-## disease_logs テーブル
+## symptoms テーブル
 | Column           | Type       | Options                        |
 | -----------------| ---------- | ------------------------------ |
 | disease          | references | null: false, foreign_key: true |
 | symptoms         | string     | null: false                    |
 | time             | datetime   | null: false                    |
-| level            | integer    | null: false                    |
+| level_id         | integer    | null: false                    |
 | treatment        | text       |                                |
 | evaluation       | text       |                                |
 | memo             | text       |                                |
