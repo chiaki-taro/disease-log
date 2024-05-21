@@ -1,0 +1,12 @@
+.input-birth-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.input-birth-wrap select {
+  margin-right: 5px;
+}
+
+.input-birth-wrap p {
+  margin: 0 5px;
+}
