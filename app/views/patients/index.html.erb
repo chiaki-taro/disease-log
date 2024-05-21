@@ -6,8 +6,6 @@
   <% @patients.each do |patient| %>
     <li>
       <%= link_to patient.patient_name, user_patient_path(@user, patient) %>
-      (<%= link_to '編集', edit_user_patient_path(@user, patient) %>)
-      (<%= link_to '削除', user_patient_path(@user, patient), method: :delete, data: { confirm: '本当に削除しますか？' } %>)
     </li>
   <% end %>
 </ul>

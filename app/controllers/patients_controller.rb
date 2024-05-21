@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
+  before_action :set_patient, only: [:show, :edit, :update]
 
   def index
     @patients = @user.patients.order(patient_name: :asc)
@@ -19,10 +20,28 @@ class PatientsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @patient.update(patient_params)
+      redirect_to user_patient_path(@user, @patient)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_user
     @user = current_user
+  end
+
+  def set_patient
+    @patient = @user.patients.find(params[:id])
   end
 
   def patient_params
