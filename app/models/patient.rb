@@ -2,6 +2,7 @@ class Patient < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :sex
   belongs_to :user
+  has_many :diseases
 
   validates :sex_id, numericality: { other_than: 0, message: "can't be blank"} 
 

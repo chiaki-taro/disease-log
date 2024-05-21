@@ -35,7 +35,7 @@
 | patient          | references | null: false, foreign_key: true |
 | disease_name     | string     | null: false                    |
 | date_of_onset    | datetime   | null: false                    |
-| status           | integer    | null: false                    |
+| status_id        | integer    | null: false                    |
 
 ### Association
 
