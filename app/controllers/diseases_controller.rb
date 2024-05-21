@@ -1,6 +1,7 @@
 class DiseasesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_patient
+  before_action :set_disease, only: [:show, :edit, :update, :destroy]
 
   def new
     @disease = @patient.diseases.new
@@ -13,6 +14,25 @@ class DiseasesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @disease.update(disease_params)
+      redirect_to user_patient_disease_path(@patient.user, @patient, @disease)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @disease.destroy
+    redirect_to user_patient_path(@patient.user, @patient)
   end
 
   private

@@ -1,5 +1,5 @@
 <%= render "shared/header" %>
-<h1><%= @patient.patient_name %>さんの</h1>
+<h1><%= @patient.patient_name %>さん</h1>
 <%= link_to '患者さん情報編集', edit_user_patient_path(@user, @patient) %>
 <%= link_to '患者さん情報削除', user_patient_path(@user, @patient), data: {turbo_method: :delete} %>
 

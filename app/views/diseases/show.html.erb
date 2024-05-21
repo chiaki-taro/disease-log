@@ -1,0 +1,6 @@
+<%= render "shared/header" %>
+
+<h1><%= @disease.disease_name %>の症状経過</h1>
+<div>発症日：<%= @disease.date_of_onset.strftime('%Y-%m-%d') %></div>
+<%= link_to '疾患編集', edit_user_patient_disease_path(@user, @patient, @disease) %>
+<%= link_to '疾患削除', user_patient_disease_path(@user, @patient, @disease), data: {turbo_method: :delete} %>
