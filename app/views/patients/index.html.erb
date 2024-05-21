@@ -1,3 +1,5 @@
+<%= render "shared/header" %>
+
 <h1><%= @user.user_name %>さんの患者一覧</h1>
 
 <%= link_to '新しい患者を追加', new_user_patient_path(@user), class: 'btn' %>
