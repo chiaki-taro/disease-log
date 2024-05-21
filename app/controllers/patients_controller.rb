@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
-  before_action :set_patient, only: [:show, :edit, :update]
+  before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
     @patients = @user.patients.order(patient_name: :asc)
@@ -32,6 +32,11 @@ class PatientsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @patient.destroy
+    redirect_to user_patients_path(@user)
   end
 
   private
