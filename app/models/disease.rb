@@ -1,4 +1,6 @@
 class Disease < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :status
   belongs_to :patient
 
   with_options presence: true do
