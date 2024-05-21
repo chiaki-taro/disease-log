@@ -2,6 +2,7 @@ class Disease < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :status
   belongs_to :patient
+  has_many :symptoms
 
   validates :status_id, numericality: { other_than: 0, message: "can't be blank"} 
 
