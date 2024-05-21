@@ -1,0 +1,27 @@
+<%= render "shared/header" %>
+
+<div class="disease-contents">
+  <div class="add-disease-main">
+    <h2 class="add-disease-title">疾患編集</h2>
+    <%# 疾患登録フォーム %>
+    <%= form_with model: [@user, @patient, @disease], local: true do |f| %>
+      <div class="disease_name-text">
+        疾患名
+      </div>
+      <%= f.text_area :disease_name, class:"disease_name", placeholder:"疾患名を入力してください", style: "width: 350px;" %>
+
+      <div class="disease-date-text">
+        発症日
+      </div>
+      <%= f.datetime_field :date_of_onset, class:"date_of_onset" %>
+
+      <div class="patient_sex-text">
+        ステータス
+      </div>
+      <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"sex-select"}) %>
+
+      <%= f.submit "疾患更新" ,class:"btn" %>
+    <% end %>
+    <%# 疾患登録フォーム %>
+  </div>
+</div>
