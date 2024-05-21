@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resources :patients do
-      resources :diseases
+      resources :diseases do
+        resources :symptoms
+      end
     end
   end
 end
