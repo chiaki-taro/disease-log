@@ -1,24 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| user_name          | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :patients
 
-* Configuration
 
-* Database creation
+## patients テーブル
 
-* Database initialization
+| Column           | Type       | Options                        |
+| -----------------| ---------- | ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| patient_name     | string     | null: false                    |
+| sex_id           | integer    | null: false                    |
+| birthday         | date       | null: false                    |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many :diseases
 
-* Deployment instructions
 
-* ...
+## diseases テーブル
+
+| Column           | Type       | Options                        |
+| -----------------| ---------- | ------------------------------ |
+| patient          | references | null: false, foreign_key: true |
+| disease_name     | string     | null: false                    |
+| date_of_onset    | datetime   | null: false                    |
+| status           | integer    | null: false                    |
+
+### Association
+
+- belongs_to :patient
+- has_many :disease_logs
+
+
+## disease_logs テーブル
+| Column           | Type       | Options                        |
+| -----------------| ---------- | ------------------------------ |
+| disease          | references | null: false, foreign_key: true |
+| symptoms         | string     | null: false                    |
+| time             | datetime   | null: false                    |
+| level            | integer    | null: false                    |
+| treatment        | text       |                                |
+| evaluation       | text       |                                |
+| memo             | text       |                                |
+
+- belongs_to :disease
