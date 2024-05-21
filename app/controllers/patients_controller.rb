@@ -21,6 +21,7 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @diseases = @patient.diseases
   end
 
   def edit
