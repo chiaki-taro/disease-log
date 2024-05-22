@@ -1,0 +1,30 @@
+.top-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* ヘッダーの背景色 */
+  padding: 10px 20px; /* ヘッダーの内側余白 */
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left a,
+.header-right a {
+  text-decoration: none; /* リンクの下線を削除 */
+  color: white; /* リンクのテキストカラー */
+  padding: 10px; /* リンクの内側余白 */
+  transition: background-color 0.3s; /* ホバー時のアニメーション */
+}
+
+.header-left a:hover,
+.header-right a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* ホバー時の背景色 */
+}
+
+.logout {
+  cursor: pointer; /* カーソルをポインターに変更 */
+}
