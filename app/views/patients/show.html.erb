@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <h1><%= @patient.patient_name %>さん</h1>
-<%= link_to '患者さん情報編集', edit_user_patient_path(@user, @patient) %>
-<%= link_to '患者さん情報削除', user_patient_path(@user, @patient), data: {turbo_method: :delete} %>
+<%= link_to '患者さん情報編集', edit_user_patient_path(@user, @patient), class: 'btn'%>
+<%= link_to '患者さん情報削除', user_patient_path(@user, @patient), data: {turbo_method: :delete}, class: 'btn' %>
 
 <h2>疾患一覧</h2>
 <ul>
@@ -13,4 +13,4 @@
   <% end %>
 </ul>
 
-<%= link_to '疾患の追加', new_user_patient_disease_path(@user, @patient) %>
+<%= link_to '疾患の追加', new_user_patient_disease_path(@user, @patient), class: 'btn' %>
