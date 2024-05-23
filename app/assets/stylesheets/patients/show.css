@@ -1,0 +1,49 @@
+.center-content .btn {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.center-content .btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.center-content .button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.center-content .delete-btn {
+  background-color: #dc3545;
+}
+
+.center-content .delete-btn:hover {
+  background-color: #c82333;
+}
+
+.center-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.center-content ul li {
+  margin: 10px 0;
+}
+
+.center-content ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.center-content ul li a:hover {
+  color: #007BFF;
+}

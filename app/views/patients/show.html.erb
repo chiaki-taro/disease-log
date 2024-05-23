@@ -3,8 +3,11 @@
   <h1><%= @patient.patient_name %>さん</h1>
   <div>性別：<%= @patient.sex.name %></div>
   <div>生年月日：<%= @patient.birthday %></div>
-  <%= link_to '患者さん情報編集', edit_user_patient_path(@user, @patient), class: 'btn'%>
-  <%= link_to '患者さん情報削除', user_patient_path(@user, @patient), data: {turbo_method: :delete}, class: 'btn' %>
+
+  <div class="button-group">
+    <%= link_to '患者さん情報編集', edit_user_patient_path(@user, @patient), class: 'btn' %>
+    <%= link_to '患者さん情報削除', user_patient_path(@user, @patient), data: { turbo_method: :delete }, class: 'btn delete-btn' %>
+  </div>
 
   <h2>疾患一覧</h2>
   <ul>
