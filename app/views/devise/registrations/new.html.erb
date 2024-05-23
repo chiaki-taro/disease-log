@@ -1,8 +1,4 @@
-<header class='top-page-header'>
-  <div class='header-left'>
-    <%= link_to "Disease Log", "/" %>
-  </div>
-</header>
+<%= render "shared/login_signin" %>
 
 <div class="container">
   <h2>Sign up</h2>
@@ -10,12 +6,12 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :user_name %><br />
+      <%= f.label :user_name %>
       <%= f.text_field :user_name, autofocus: true, maxlength: "10", placeholder:"10文字以内で入力して下さい"%>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email %>
       <%= f.email_field :email, placeholder:"PC・携帯どちらでも可"%>
     </div>
 
@@ -25,7 +21,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"同じパスワードを入力して下さい"%>
     </div>
 
