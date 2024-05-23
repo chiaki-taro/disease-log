@@ -1,12 +1,72 @@
-.input-birth-wrap {
+.add-patient-main {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+/* フォームのタイトル */
+.add-patient-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* フォームグループ */
+.form-group {
+  margin-bottom: 15px;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.input-birth-wrap select {
-  margin-right: 5px;
+/* ラベル */
+.patient_name-text,
+.patient_sex-text,
+.patient_birthday-text {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #555;
+  width: 100%;
+  text-align: center;
 }
 
-.input-birth-wrap p {
+/* テキストエリア */
+.patient_name {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* セレクトフィールド */
+.sex-select {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* 生年月日 */
+.input-birth-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-birth {
+  width: 100px;
   margin: 0 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
 }

@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="patient-contents">
+<div class="center-content">
   <div class="add-patient-main">
     <h2 class="add-patient-title">患者さん編集</h2>
     <%# 患者さん編集フォーム %>
@@ -8,12 +8,14 @@
       <div class="patient_name-text">
         患者さんのお名前
       </div>
-      <%= f.text_area :patient_name, class:"patient_name", placeholder:"お名前を入力してください", style: "width: 350px;" %>
+      <%= f.text_area :patient_name, class:"patient_name", placeholder:"お名前を入力してください" %></br>
+      </br>
 
       <div class="patient_sex-text">
         性別
       </div>
-      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"sex-select"}) %>
+      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"sex-select"}) %></br>
+      </br>
 
       <div class="patient_birthday-text">
         生年月日
@@ -30,7 +32,7 @@
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-      </div>
+      </div></br>
       <%= f.submit "患者さん情報更新" ,class:"btn" %>
     <% end %>
     <%# 患者さん編集フォーム %>
