@@ -1,13 +1,16 @@
 <%= render "shared/header" %>
 
-<h1><%= @user.user_name %>さんの患者一覧</h1>
+<div class="center-content">
+  <h1><%= @user.user_name %>さんの患者一覧</h1>
 
-<%= link_to '新しい患者を追加', new_user_patient_path(@user), class: 'btn' %>
+  <ul>
+    <% @patients.each do |patient| %>
+      <li>
+        <%= link_to patient.patient_name, user_patient_path(@user, patient) %>
+      </li>
+    <% end %>
+  </ul>
 
-<ul>
-  <% @patients.each do |patient| %>
-    <li>
-      <%= link_to patient.patient_name, user_patient_path(@user, patient) %>
-    </li>
-  <% end %>
-</ul>
+  <%= link_to '新しい患者を追加', new_user_patient_path(@user), class: 'btn' %>
+
+</div>
