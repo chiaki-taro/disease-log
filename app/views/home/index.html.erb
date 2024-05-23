@@ -10,12 +10,12 @@
   <div class="content">
     <% if user_signed_in? %>
       <h1>ようこそ、<%= current_user.user_name %>さん</h1>
-      <%= link_to 'マイページ', user_path(current_user), class: 'btn' %>
+      <%# <%= link_to 'マイページ', user_path(current_user), class: 'btn' %> 
       <%= link_to '患者一覧', user_patients_path(current_user), class: 'btn' %>
     <% else %>
       <h1>ようこそ</h1>
-      <%= link_to 'ログイン', new_user_session_path, class: 'btn' %>
-      <%= link_to 'サインアップ', new_user_registration_path, class: 'btn' %>
+      <%# <%= link_to 'ログイン', new_user_session_path, class: 'btn' %>
+      <%# <%= link_to 'サインアップ', new_user_registration_path, class: 'btn' %> 
     <% end %>
   </div>
 </div>
