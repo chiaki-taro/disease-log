@@ -2,6 +2,11 @@ crumb :root do
   link "Home", root_path
 end
 
+crumb :my_page do |user|
+  link "#{user.user_name}さんのマイページ", user_patients_path(user)
+  parent :root
+end
+
 crumb :patients do |user|
   link "#{user.user_name}さんの患者一覧", user_patients_path(user)
   parent :root

@@ -1,14 +1,16 @@
-<%= render "shared/top_header" %>
+<% breadcrumb :my_page, @user%>
+<div class="center-content">
+  <h1><%= @user.user_name %>さんのマイページ</h1>
 
-<h1><%= @user.user_name %>さんのマイページ</h1>
+  <h2>患者一覧</h2>
 
-<h2>患者一覧</h2>
-<%= link_to '新しい患者を追加', new_user_patient_path(@user), class: 'btn' %>
+  <ul>
+    <% @patients.each do |patient| %>
+      <li>
+        <%= link_to patient.patient_name, user_patient_path(@user, patient) %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to '新しい患者を追加', new_user_patient_path(@user), class: 'btn' %>
 
-<ul>
-  <% @patients.each do |patient| %>
-    <li>
-      <%= link_to patient.patient_name, user_patient_path(@user, patient) %>
-    </li>
-  <% end %>
-</ul>
+</div>
