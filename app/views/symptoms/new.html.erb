@@ -1,4 +1,9 @@
 <%= render "shared/header" %>
+
+<div>
+  <%= link_to @patient.patient_name, user_patient_path(@user, @patient) %>>><%= link_to @disease.disease_name, user_patient_disease_path(@user, @patient, @disease) %>>>
+</div>
+
 <div class="center-content">
 
   <%# 症状入力フォーム %>
