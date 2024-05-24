@@ -2,34 +2,38 @@
 <div>
   <%= link_to @patient.patient_name, user_patient_path(@user, @patient) %>>>
 </div>
-<h1><%= @disease.disease_name %>の症状経過</h1>
-<div>発症日：<%= @disease.date_of_onset.strftime('%Y-%m-%d') %></div>
-<%= link_to '疾患編集', edit_user_patient_disease_path(@user, @patient, @disease) , class: 'btn' %>
-<%= link_to '疾患削除', user_patient_disease_path(@user, @patient, @disease), data: {turbo_method: :delete} , class: 'btn' %>
 
-<ul class='symptom-lists'>
-    <% @symptoms.each do |symptom| %>
-      <li class='symptom-list'>
-        <div class='symptom-info'>
-          <div class='symptom-header'>
-            <div class='symptom-time'><%= symptom.time.strftime("%Y-%m-%d %H:%M") %></div>
-            <h3 class='symptom'><%= symptom.symptoms %></h3>
+<div class="center-content">
+  <h1><%= @disease.disease_name %>の症状経過</h1>
+  <div>発症日：<%= @disease.date_of_onset.strftime('%Y-%m-%d') %></div>
+  <div class='disease-actions'>
+    <%= link_to '疾患編集', edit_user_patient_disease_path(@user, @patient, @disease) , class: 'btn' %>
+    <%= link_to '疾患削除', user_patient_disease_path(@user, @patient, @disease), data: {turbo_method: :delete} , class: 'btn' %>
+  </div>
+  <ul class='symptom-lists'>
+      <% @symptoms.each do |symptom| %>
+        <li class='symptom-list'>
+          <div class='symptom-info'>
+            <div class='symptom-header'>
+              <div class='symptom-time'><%= symptom.time.strftime("%Y-%m-%d %H:%M") %></div>
+              <h3 class='symptom'><%= symptom.symptoms %></h3>
+            </div>
+            <div class='symptom-body'>
+              <div class='symptom-level'>症状の強さ：<%= symptom.level_id %></div>
+            </div>
+            <div class='symptom-footer'>
+              <div class='symptom-treatment'><%= symptom.treatment %></div>
+              <div class='pain-evaluation'><%= symptom.evaluation %></div>
+              <div class='symptom-memo'><%= symptom.memo %></div>
+            </div>
+            <div class='symptom-actions'>
+              <%= link_to '編集', edit_user_patient_disease_symptom_path(@user, @patient, @disease, symptom),class: "symptom-actions-btn" %>
+              <%= link_to '削除', user_patient_disease_symptom_path(@user, @patient, @disease, symptom), data: {turbo_method: :delete},class: "symptom-actions-btn"%>
+            </div>
           </div>
-          <div class='symptom-body'>
-            <div class='symptom-level'>症状の強さ：<%= symptom.level_id %></div>
-          </div>
-          <div class='symptom-footer'>
-            <div class='symptom-treatment'><%= symptom.treatment %></div>
-            <div class='pain-evaluation'><%= symptom.evaluation %></div>
-            <div class='symptom-memo'><%= symptom.memo %></div>
-          </div>
-          <div class='symptom-actions'>
-            <%= link_to '編集', edit_user_patient_disease_symptom_path(@user, @patient, @disease, symptom) %>
-            <%= link_to '削除', user_patient_disease_symptom_path(@user, @patient, @disease, symptom), data: {turbo_method: :delete} %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+        </li>
+      <% end %>
+    </ul>
 
-<%= link_to '症状登録', new_user_patient_disease_symptom_path(@user, @patient, @disease) , class: 'btn' %>
+  <%= link_to '症状登録', new_user_patient_disease_symptom_path(@user, @patient, @disease) , class: 'btn' %>
+</div>

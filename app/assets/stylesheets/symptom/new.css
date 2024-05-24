@@ -1,0 +1,46 @@
+.add-symptom-main {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.add-symptom-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.symptom-scale-img {
+  margin-bottom: 20px;
+}
+
+.symptom-date-text,
+.symptom-symptoms-text,
+.symptom-level-text,
+.pain-treatment-text,
+.pain-evaluation-text,
+.pain-memo-text {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #666;
+  text-align: left;
+}
+
+.time,
+.symptoms,
+.level-select,
+.treatment,
+.evaluation,
+.memo {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
