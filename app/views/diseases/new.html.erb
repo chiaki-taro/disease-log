@@ -1,8 +1,7 @@
-<%= render "shared/header" %>
-
+<% breadcrumb :disease_new, @user, @patient %>
 <div class="center-content">
   <div class="add-disease-main">
-    <h2 class="add-disease-title">疾患登録</h2>
+    <h2 class="add-disease-title"><%=@patient.patient_name%>さんの疾患登録</h2>
     <%# 疾患登録フォーム %>
     <%= form_with model: [@user, @patient, @disease], local: true do |f| %>
       <div class="disease_name-text">

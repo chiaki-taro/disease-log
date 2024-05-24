@@ -1,4 +1,4 @@
-<%= render "shared/header" %>
+<% breadcrumb :patient_show, @user, @patient %>
 <div class="center-content">
   <h1><%= @patient.patient_name %>さん</h1>
   <div>性別：<%= @patient.sex.name %></div>

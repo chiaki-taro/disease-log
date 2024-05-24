@@ -1,7 +1,4 @@
-<%= render "shared/header" %>
-<div>
-  <%= link_to @patient.patient_name, user_patient_path(@user, @patient) %>>>
-</div>
+<% breadcrumb :disease_show, @user, @patient, @disease %>
 
 <div class="center-content">
   <h1><%= @disease.disease_name %>の症状経過</h1>

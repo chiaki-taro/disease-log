@@ -1,8 +1,4 @@
-<%= render "shared/header" %>
-
-<div>
-  <%= link_to @patient.patient_name, user_patient_path(@user, @patient) %>>><%= link_to @disease.disease_name, user_patient_disease_path(@user, @patient, @disease) %>>>
-</div>
+<% breadcrumb :symptom_new, @user, @patient, @disease %>
 
 <div class="center-content">
 
