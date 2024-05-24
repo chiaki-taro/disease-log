@@ -2,15 +2,23 @@
 <div class="center-content">
   <h1><%= @user.user_name %>さんのマイページ</h1>
 
-  <h2>患者一覧</h2>
-
-  <ul>
-    <% @patients.each do |patient| %>
-      <li>
-        <%= link_to patient.patient_name, user_patient_path(@user, patient) %>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to '新しい患者を追加', new_user_patient_path(@user), class: 'btn' %>
+  <div class='user-info'>
+    <div>ユーザー名：<%= @user.user_name %></div>
+    <div>メールアドレス：<%= @user.email %></div>
+  </div>
+  
+  </br>
+  <div class='user-patients'>
+    <h2>患者一覧</h2>
+    <ul>
+      <% @patients.each do |patient| %>
+        <li>
+          <%= link_to patient.patient_name, user_patient_path(@user, patient) %>
+        </li>
+      <% end %>
+    </ul>
+    </br>
+    <%= link_to '新しい患者を追加', new_user_patient_path(@user), class: 'btn' %>
+  </div>
 
 </div>
