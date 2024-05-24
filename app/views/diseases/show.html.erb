@@ -16,7 +16,8 @@
               <h3 class='symptom'><%= symptom.symptoms %></h3>
             </div>
             <div class='symptom-body'>
-              <div class='symptom-level'>症状の強さ：<%= symptom.level_id %></div>
+              <div class='symptom-level'>症状の強さ：</br>
+                <%= symptom.level.name %></div>
             </div>
             <div class='symptom-footer'>
               <div class='symptom-treatment'><%= symptom.treatment %></div>
