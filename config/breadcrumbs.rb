@@ -3,8 +3,13 @@ crumb :root do
 end
 
 crumb :my_page do |user|
-  link "#{user.user_name}さんのマイページ", user_patients_path(user)
+  link "#{user.user_name}さんのマイページ", user_path(user)
   parent :root
+end
+
+crumb :my_page_edit do |user|
+  link "#{user.user_name}さんのemail/password編集"
+  parent :my_page, user
 end
 
 crumb :patients do |user|
