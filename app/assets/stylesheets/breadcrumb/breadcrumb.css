@@ -1,0 +1,18 @@
+.breadcrumbs a {
+  text-decoration: none; 
+}
+
+.breadcrumbs {
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.breadcrumbs a {
+  color: #647d98;
+}
+
+.breadcrumbs a:hover {
+  color: #0056b3;
+}
