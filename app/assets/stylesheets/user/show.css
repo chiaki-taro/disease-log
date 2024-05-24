@@ -1,0 +1,19 @@
+.user-info {
+  color: #000;
+  font-weight: bold;
+}
+
+.user-info-block, .user-patients-block {
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  margin:10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info-block h2, .user-patients-block h2 {
+  margin-top: 0;
+}
