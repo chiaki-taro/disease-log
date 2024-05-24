@@ -6,6 +6,8 @@
     <div>ユーザー名：<%= @user.user_name %></div>
     <div>メールアドレス：<%= @user.email %></div>
   </div>
+  </br>
+  <%= link_to "email/password変更", edit_user_registration_path, class: 'btn'  %>
   
   </br>
   <div class='user-patients'>
