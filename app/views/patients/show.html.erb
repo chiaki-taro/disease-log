@@ -15,6 +15,7 @@
       <tr>
         <th>疾患名</th>
         <th>発症日</th>
+        <th>最終更新日時</th> 
         <th>ステータス</th>
       </tr>
     </thead>
@@ -23,6 +24,7 @@
         <tr>
           <td><%= link_to disease.disease_name, user_patient_disease_path(@user, @patient, disease) %></td>
           <td><%= disease.date_of_onset.strftime('%Y-%m-%d') %></td>
+          <td><%= disease.last_symptom_time.strftime('%Y-%m-%d %H:%M') if disease.last_symptom_time %></td> 
           <td><%= disease.status.name %></td>
         </tr>
       <% end %>

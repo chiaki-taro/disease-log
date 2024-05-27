@@ -11,4 +11,9 @@ class Disease < ApplicationRecord
     validates :date_of_onset
     validates :status_id
   end
+
+  def last_symptom_time
+    last_symptom = symptoms.last
+    last_symptom ? last_symptom.time : nil
+  end
 end
