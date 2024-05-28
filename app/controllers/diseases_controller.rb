@@ -1,5 +1,6 @@
 class DiseasesController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_user_id
   before_action :set_patient
   before_action :set_disease, only: [:show, :edit, :update, :destroy]
 
@@ -38,8 +39,15 @@ class DiseasesController < ApplicationController
 
   private
 
+  def check_user_id
+    @user = current_user
+    if @user.id != params[:user_id].to_i
+      redirect_to root_path
+    end
+  end
+
   def set_patient
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
     @patient = current_user.patients.find(params[:patient_id])
   end
 

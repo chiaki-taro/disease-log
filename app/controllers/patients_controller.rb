@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user
+  before_action :check_user_id
+  # before_action :set_user
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -42,8 +43,15 @@ class PatientsController < ApplicationController
 
   private
 
-  def set_user
+  # def set_user
+  #   @user = current_user
+  # end
+
+  def check_user_id
     @user = current_user
+    if @user.id != params[:user_id].to_i
+      redirect_to root_path
+    end
   end
 
   def set_patient

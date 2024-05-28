@@ -1,5 +1,6 @@
 class SymptomsController < ApplicationController
-  before_action :set_user
+  # before_action :set_user
+  before_action :check_user_id
   before_action :set_patient
   before_action :set_disease
   before_action :set_symptom, only: [:edit, :update, :destroy]
@@ -35,8 +36,11 @@ class SymptomsController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:user_id])
+  def check_user_id
+    @user = current_user
+    if @user.id != params[:user_id].to_i
+      redirect_to root_path
+    end
   end
 
   def set_patient
