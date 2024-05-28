@@ -4,6 +4,7 @@
     <h2 class="add-disease-title"><%=@patient.patient_name%>さんの疾患登録</h2>
     <%# 疾患登録フォーム %>
     <%= form_with model: [@user, @patient, @disease], local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="disease_name-text">
         疾患名
       </div>

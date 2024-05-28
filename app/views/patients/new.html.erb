@@ -4,6 +4,7 @@
     <h2 class="add-patient-title">患者さん登録</h2>
     <%# 患者さん登録フォーム %>
     <%= form_with model: [@user, @patient], local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="patient_name-text">
         患者さんのお名前
       </div>
