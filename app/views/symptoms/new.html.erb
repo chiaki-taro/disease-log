@@ -15,6 +15,7 @@
     <%# 症状レベル画像 %>
 
     <%= form_with model: [@user, @patient, @disease, @symptom], local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="symptom-date-text">
         症状があった日時
       </div>
