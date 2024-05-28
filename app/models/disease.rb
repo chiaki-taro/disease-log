@@ -16,4 +16,6 @@ class Disease < ApplicationRecord
     last_symptom = symptoms.last
     last_symptom ? last_symptom.time : nil
   end
+
+  attribute :last_symptom_time
 end
