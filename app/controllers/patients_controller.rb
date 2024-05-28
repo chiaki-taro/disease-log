@@ -21,7 +21,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @diseases = @patient.diseases
+    @diseases = @patient.diseases.includes(:symptoms).sort_by { |disease| disease.last_symptom_time || Time.at(0) }.reverse
   end
 
   def edit
