@@ -1,5 +1,4 @@
 class SymptomsController < ApplicationController
-  # before_action :set_user
   before_action :check_user_id
   before_action :set_patient
   before_action :set_disease
