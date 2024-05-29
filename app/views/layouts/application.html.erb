@@ -14,5 +14,19 @@
     <%= render "shared/header" %>
     <%= breadcrumbs separator: " &rsaquo; " %>
     <%= yield %>
+
+    <div class="floating-button">
+      <%= link_to '近くの病院を探す', "#", class: 'btn btn-primary' %>
+    </div>
+
+    <style>
+      .floating-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+    </style>
+
   </body>
 </html>
