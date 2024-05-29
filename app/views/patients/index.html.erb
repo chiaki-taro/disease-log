@@ -2,13 +2,28 @@
 <div class="center-content">
   <h1><%= @user.user_name %>さんの患者一覧</h1>
 
-  <ul>
-    <% @patients.each do |patient| %>
-      <li>
-        <%= link_to patient.patient_name, user_patient_path(@user, patient) %>
-      </li>
-    <% end %>
-  </ul>
+  <% if @patients.empty? %>
+    <p>患者さんが登録されていません</p>
+  <% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>患者名</th>
+        <th>生年月日</th>
+        <th>性別</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <% @patients.each do |patient| %>
+        <tr>
+          <td><%= link_to patient.patient_name, user_patient_path(@user, patient) %></td>
+          <td><%= patient.birthday.strftime('%Y-%m-%d') %></td>
+          <td><%= patient.sex.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
 
   <%= link_to '新しい患者を追加', new_user_patient_path(@user), class: 'btn' %>
 

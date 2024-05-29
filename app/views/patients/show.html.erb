@@ -10,6 +10,9 @@
   </div>
 
   <h2>疾患一覧</h2>
+  <% if @diseases.empty? %>
+    <p>疾患が登録されていません</p>
+  <% else %>
   <table>
     <thead>
       <tr>
@@ -30,5 +33,6 @@
       <% end %>
     </tbody>
   </table>
+  <% end %>
   <%= link_to '疾患の追加', new_user_patient_disease_path(@user, @patient), class: 'btn' %>
 </div>
