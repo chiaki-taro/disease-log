@@ -7,7 +7,11 @@
     <%= link_to '疾患編集', edit_user_patient_disease_path(@user, @patient, @disease) , class: 'btn' %>
     <%= link_to '疾患削除', user_patient_disease_path(@user, @patient, @disease), data: {turbo_method: :delete} , class: 'btn' %>
   </div>
-  <ul class='symptom-lists'>
+
+  <% if @symptoms.empty? %>
+    <p>症状が登録されていません。</p>
+  <% else %>
+    <ul class='symptom-lists'>
       <% @symptoms.each do |symptom| %>
         <li class='symptom-list'>
           <div class='symptom-info'>
@@ -32,6 +36,7 @@
         </li>
       <% end %>
     </ul>
+  <% end %>
 
   <%= link_to '症状登録', new_user_patient_disease_symptom_path(@user, @patient, @disease) , class: 'btn' %>
 </div>
