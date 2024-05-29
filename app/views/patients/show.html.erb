@@ -40,3 +40,12 @@
   </table>
   <%= link_to '疾患の追加', new_user_patient_disease_path(@user, @patient), class: 'btn' %>
 </div>
+
+<script>
+window.addEventListener('turbo:load', function(){
+  const checkbox = document.getElementById('only_observing');
+  checkbox.addEventListener('change', () => {
+    console.log("checkされました！")
+  });
+});
+</script>
