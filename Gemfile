@@ -79,4 +79,5 @@ gem 'devise'
 gem 'active_hash'
 gem 'pry-rails'
 gem 'gretel'
-
+gem 'dotenv-rails'
+gem 'httparty'
