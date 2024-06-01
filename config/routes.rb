@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'maps/show'
   root to: 'home#index'
   devise_for :users
 
@@ -10,4 +9,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get 'map', to: 'maps#show'
 end
