@@ -1,2 +1,46 @@
-<h1>Maps#show</h1>
-<p>Find me in app/views/maps/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>近くの病院を探す</title>
+  <style type="text/css">
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&libraries=places"></script>
+  <script>
+    function initMap() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: pos,
+            zoom: 15
+          });
+
+          fetch(`/map/search?location=${pos.lat},${pos.lng}`)
+            .then(response => response.json())
+            .then(data => {
+              data.results.forEach(place => {
+                var marker = new google.maps.Marker({
+                  position: place.geometry.location,
+                  map: map,
+                  title: place.name
+                });
+              });
+            });
+        });
+      }
+    }
+  </script>
+</head>
+<body onload="initMap()">
+  <h1>近くの病院を探す</h1>
+  <div id="map"></div>
+</body>
+</html>

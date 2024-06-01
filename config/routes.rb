@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   get 'map', to: 'maps#show'
+  get 'map/search', to: 'maps#search', as: 'search_map'
 end
