@@ -8,7 +8,7 @@
       width: 100%;
     }
   </style>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&libraries=places" loading="async"></script>
   <script>
     function initMap() {
       if (navigator.geolocation) {
@@ -31,6 +31,14 @@
                   position: place.geometry.location,
                   map: map,
                   title: place.name
+                });
+
+                var infowindow = new google.maps.InfoWindow({
+                  content: `<div><strong>${place.name}</strong><br>${place.vicinity}</div>`
+                });
+
+                marker.addListener('click', function() {
+                  infowindow.open(map, marker);
                 });
               });
             });

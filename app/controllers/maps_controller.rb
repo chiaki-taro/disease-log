@@ -14,7 +14,7 @@ class MapsController < ApplicationController
     @results = response.parsed_response['results']
 
     respond_to do |format|
-      format.js
+      format.json { render json: { results: @results } }
     end
   end
 end
