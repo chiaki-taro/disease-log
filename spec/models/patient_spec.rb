@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Patient, type: :model do
   before do
-    @patient = FactoryBot.build(:patient)
+    @user = FactoryBot.create(:user)
+    @patient = FactoryBot.build(:patient, user_id: @user.id)
   end
 
   describe '患者新規登録' do
@@ -18,6 +19,12 @@ RSpec.describe Patient, type: :model do
     end
 
     context '患者新規登録出来ない時' do
+      it 'user_idが空だと保存できない' do
+        @patient.user_id = nil
+        @patient.valid?
+        expect(@patient.errors.full_messages).to include("User must exist")
+      end
+
       it 'patient_nameが空では登録できない' do
         @patient.patient_name = ''
         @patient.valid?
