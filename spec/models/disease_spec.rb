@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Disease, type: :model do
   before do
-    @disease = FactoryBot.build(:disease)
+    @patient = FactoryBot.create(:patient)
+    @disease = FactoryBot.build(:disease, patient_id: @patient.id)
   end
 
   describe '疾患新規登録' do
@@ -23,7 +24,13 @@ RSpec.describe Disease, type: :model do
     end
 
     context '疾患新規登録出来ない時' do
-      it 'が空では登録できない' do
+      it 'patient_idが空だと保存できない' do
+        @disease.patient_id = nil
+        @disease.valid?
+        expect(@disease.errors.full_messages).to include("Patient must exist")
+      end
+
+      it '病名が空では登録できない' do
         @disease.disease_name = ''
         @disease.valid?
         expect(@disease.errors.full_messages).to include("Disease name can't be blank")
