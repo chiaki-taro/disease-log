@@ -8,7 +8,7 @@
 | MySQL                 | 14.14      |
 
 ## サービスのURL
-https://disease-log.onrender.com/
+https://disease-log.onrender.com/<br/>
 実際に触っていただくためにユーザーを準備しております。<br/>
 ユーザー名: テストユーザー<br/>
 email: abc@efg<br/>
