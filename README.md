@@ -7,7 +7,7 @@
 | rails                 | 7.0.0      |
 | MySQL                 | 14.14      |
 
-## サービスのURL（現在停止中）
+## サービスのURL
 https://disease-log.onrender.com/<br/>
 実際に触っていただくためにユーザーを準備しております。<br/>
 ユーザー名: テストユーザー<br/>
