@@ -8,7 +8,7 @@
 | MySQL                 | 14.14      |
 
 ## サービスのURL
-###デプロイ停止中
+### デプロイ停止中
 https://disease-log.onrender.com/<br/>
 
 ## サービスの概要・開発した背景
